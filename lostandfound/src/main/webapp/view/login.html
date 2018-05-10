@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="static/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="static/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="static/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<link type="text/css" rel="stylesheet" href="static/easyui/themes/default/easyui.css"/>
+<link type="text/css" rel="stylesheet" href="static/easyui/themes/icon.css"/>
+<link type="text/css" rel="stylesheet" href="css/login.css"/>
+
+
+</head>
+<body>
+	<div id="login"> 
+		<p>用户账号:<input type="text" id="username"  class="textbox easyui-validatebox" data-options="required:true,validType:'nameRule'"/></p>
+		<p>用户密码:<input type="password" id="password" class="textbox easyui-validatebox" data-options="required:true,validType:'passRule'"/></p>
+		<div id="role">
+			<input type="radio" name="role" value="1"/>管理员
+			<input type="radio" name="role" value="2" checked="checked"/>普通用户
+		</div>
+	</div>
+	
+	<div id="btn">
+		<a href="javascript:void(0);" class="easyui-linkbutton">登录</a>
+	</div>
+</body>
+
+<script type="text/javascript" src="/lostandfound/view/js/validate.js"></script>
+</html>

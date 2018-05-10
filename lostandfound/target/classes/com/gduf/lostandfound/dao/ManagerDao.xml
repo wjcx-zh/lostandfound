@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gduf.lostandfound.dao.ManagerDao">
+	
+	<resultMap type="User" id="userMapper">
+		<id column="user_id" property="userId"/>
+		<result column="user_name" property="username"/>
+		<result column="user_role" property="role"/>
+		
+		
+	</resultMap>
+	
+	
+	<select id="selectManager" parameterType="java.lang.String"  resultMap="userMapper">
+		select user_id,user_name,QQ,email,phone,user_role from user_info where user_role=1 
+	</select>
+	
+	<insert id="insertManager" parameterType="User">
+		insert into user_info(user_name,password,user_role) values(#{username},#{password},1)
+	</insert>
+	
+</mapper>

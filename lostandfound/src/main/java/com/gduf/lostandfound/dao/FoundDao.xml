@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gduf.lostandfound.dao.FoundDao">
+	
+	<resultMap type="FoundInfo" id="findInfoMapper">
+		<id column="find_id" property="findId"/>
+		<result column="find_name" property="findName"/>
+		<result column="find_trait" property="trait"/>
+		<result column="find_place" property="findPlace"/>
+		<result column="find_time" property="findTime"/>
+		<result column="finder_name" property="finderName"/>
+		<result column="finder_contact" property="contact"/>
+		<result column="store_place" property="storePlace"/>
+		<result column="store_date" property="storeDate"/>	
+	</resultMap>
+	
+	<select id="querySingleInfoById" parameterType="int" resultMap="findInfoMapper">
+		select find_id,find_name,find_trait,finder_name,find_place,find_time,store_place,finder_contact,store_date,hasReturn from find_info where find_id=#{id}
+		
+	</select>
+	
+	<select id="selectAllInfo" resultMap="findInfoMapper">
+		select find_id,find_name,find_trait,finder_name,find_place,find_time,store_place,finder_contact,store_date,hasReturn from find_info where hasReturn=0 order by find_time desc  
+	</select>
+	
+	<select id="selectInfoByConditions" parameterType="com.gduf.lostandfound.vo.GoodsInfo" resultMap="findInfoMapper">
+		select find_id,find_name,find_trait,finder_name,find_place,find_time,store_place,finder_contact,store_date,hasReturn from find_info 
+		<where>
+			
+			
+			<if test="goodsName!=null and goodsName!=''">
+				and find_name=#{goodsName}
+			</if>
+			<if test="dateFrom!=null">
+				and find_time &gt;#{dateFrom}
+			</if>
+			<if test="dateTo!=null">
+				and find_time &lt; #{dateTo}  
+			</if>
+		</where> 
+		order by find_time desc
+	</select>
+	
+	<insert id="insertFoundInfo" parameterType="FoundInfo">
+		insert into find_info(find_name,find_trait,finder_name,find_place,find_time,store_place,finder_contact,store_date)
+		values(#{findName},#{trait},#{finderName},#{findPlace},#{findTime},#{storePlace},#{contact},#{storeDate})
+	</insert>
+	
+	<update id="updateSingleInfo" parameterType="FoundInfo">
+		update find_info 
+		<set>
+			<if test="findName!=null">find_name=#{findName},</if>
+			<if test="trait!=null">find_trait=#{trait},</if>
+			<if test="findPlace!=null">find_place=#{findPlace},</if>
+			<if test="findTime!=null">find_time=#{findTime},</if>
+			<if test="finderName!=null">finder_name=#{finderName},</if>
+			<if test="contact!=null">finder_contact=#{contact},</if>
+			<if test="storeDate!=null">store_date=#{storeDate},</if>
+			<if test="hasReturn!=null">hasReturn=#{hasReturn},</if>
+			<if test="storePlace!=null">store_place=#{storePlace},</if>
+		</set>
+		where find_id=#{findId}
+	</update>
+	
+	<delete id="deleteInfoInIds">
+		delete from find_info where find_id in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+</mapper>

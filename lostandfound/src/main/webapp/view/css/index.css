@@ -1,0 +1,101 @@
+*{padding:0;margin:0}
+#con{
+	width:1200px;
+	height:600px;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+
+#bgimg{
+	height:100px;
+}
+
+#con #bgimg .logo{
+	width:260px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:40px;
+	font-weight:bold;
+	folat:left;
+}
+
+#nav{
+	height:28px;
+	background-color:rgba(0,0,245,0.5);
+	overflow:hidden;
+}
+#nav li{
+	
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	list-style: none;
+	padding:0 20px 0 20px;
+	float:left;
+}
+#nav #show{
+	float:right;
+}
+
+#nav li a{
+	color:#000;
+	text-decoration: none;
+
+}
+h4{
+	font-size:20px;
+}
+#lostInfo{
+	width:50%;
+	float:left;
+}
+#dl,#dln{
+	height:372px;
+	background-color:rgba(255,255,255,0.8);
+}
+
+
+#info_query p{
+	margin-bottom: 10px;
+}
+
+label[for]{
+	display:inline-block;
+	width:60px
+}
+
+#dl li,#dln li{
+	height:24px;
+	padding:0 2px;
+	line-height:24px;
+	list-style: none;
+}
+
+#dl li:HOVER,#dln li:HOVER{
+	background-color: rgba(51,51,51,0.2);
+}
+#dl a,#dln a{
+	color:black;
+	font-size:14px;
+	text-decoration: none;
+	
+}
+#dl li span,#dln li span{
+	
+	display:inline-block;
+}
+#dl li .more,#dln li .more{
+	display:none;
+}
+#dl li:HOVER span,#dln li:HOVER span{
+	display:none;
+}
+#dl li:HOVER .more,#dln li:HOVER .more{
+	display:inline-block;
+}
+#foundInfo{
+	width:50%;
+	float:left;
+}

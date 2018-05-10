@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gduf.lostandfound.dao.NavDao">
+	
+	
+	<select id="selectNavInfo" resultType="com.gduf.lostandfound.model.Navigator">
+		select id,text,state,iconCls,url,pid from nav_man where pid=#{id}
+	</select>
+</mapper>
